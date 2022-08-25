@@ -41,7 +41,6 @@ JavaVM* runtimeJavaVMPtr;
 JNIEnv* runtimeJNIEnvPtr;
 //__weak UIViewController *viewController;
 
-void* gbuffer; // OSMesa framebuffer
 long showingWindow;
 int savedWidth, savedHeight;
 bool isInputReady, isCursorEntered, isPrepareGrabPos, isUseStackQueueCall;
