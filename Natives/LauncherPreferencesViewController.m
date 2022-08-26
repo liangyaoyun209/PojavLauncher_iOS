@@ -116,7 +116,7 @@ int tempIndex;
     rendererDict = @{
         @"gl4es 1.1.4 - exports OpenGL 2.1": @"libgl4es_114.dylib",
         @"tinygl4angle (1.17+) - exports OpenGL 3.2 (Core Profile, limited)": @"libtinygl4angle.dylib",
-        @"Zink (Mesa 22.1.2) - exports OpenGL 4.1": @"libOSMesaOverride.dylib"
+        @"Zink (Mesa 22.1.2) - exports OpenGL 4.1": @"libOSMesa.8.dylib"
     };
     
     scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];

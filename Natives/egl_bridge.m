@@ -229,14 +229,16 @@ jboolean pojavInit_OpenGL() {
     if (config_renderer) return JNI_TRUE;
 
     NSString *renderer = @(getenv("POJAV_RENDERER"));
-    if ([renderer isEqualToString:@"libOSMesa.8.dylib"]) {
+/* if ([renderer isEqualToString:@"libOSMesa.8.dylib"]) {
         config_renderer = RENDERER_VIRGL;
         setenv("GALLIUM_DRIVER", "virpipe", 1);
         loadSymbolsVirGL();
-    } else if ([renderer hasPrefix:@"libgl4es"] || [renderer hasPrefix:@"libtinygl4angle"]) {
+    } else
+*/
+    if ([renderer hasPrefix:@"libgl4es"] || [renderer hasPrefix:@"libtinygl4angle"]) {
         config_renderer = RENDERER_MTL_ANGLE;
         loadSymbols();
-    } else if ([renderer hasPrefix:@"libOSMesa"]) {
+    } else if ([renderer isEqualToString:@"libOSMesa.8.dylib"]) {
         config_renderer = RENDERER_VK_ZINK;
         setenv("GALLIUM_DRIVER","zink",1);
         loadSymbols();

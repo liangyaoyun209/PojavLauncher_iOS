@@ -134,6 +134,12 @@ void loadPreferences() {
 
     setDefaultValueForPref(prefDict, @"control_safe_area", NSStringFromCGRect(getDefaultSafeArea()));
 
+    // Perform migrations
+    if ([getPreference(@"renderer") isEqualToString:@"libOSMesaOverride.dylib"]) {
+        // Triangle fan hack is no longer needed
+        setPreference(@"renderer", @"libOSMesa.8.dylib");
+    }
+
     prefDict[@"env_vars"] = envPrefDict;
     prefDict[@"warnings"] = warnPrefDict;
 
